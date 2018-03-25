@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>471191867443-dabc9rbs0ib2g1c0s91661uefid58tka.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.471191867443-dabc9rbs0ib2g1c0s91661uefid58tka</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA3YLvnRK_Vvz2Cb8zuVkc5rwWpJ9yH2pY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>471191867443</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Mei.TutorBoard</string>
+	<key>PROJECT_ID</key>
+	<string>tutorboard-d6cf9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tutorboard-d6cf9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:471191867443:ios:6cbf6e968f989a1d</string>
+	<key>DATABASE_URL</key>
+	<string>https://tutorboard-d6cf9.firebaseio.com</string>
+</dict>
+</plist>
