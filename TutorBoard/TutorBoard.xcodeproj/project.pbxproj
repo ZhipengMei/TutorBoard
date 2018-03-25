@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3A2AAAF5206606EE00BFFE84 /* DetailTutorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */; };
-		3A452CE82067357F004CF27B /* TutorBoard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A452CE62067357F004CF27B /* TutorBoard.xcdatamodeld */; };
 		3A79BC6D2064C1620035DDBF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC6C2064C1620035DDBF /* TabBarController.swift */; };
 		3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC702064C7B80035DDBF /* HomeViewController.swift */; };
 		3A79BC752064C9D70035DDBF /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC742064C9D70035DDBF /* HomeTableViewCell.swift */; };
+		3A85D7D920685BD800EBF496 /* TutorBoard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A85D7D720685BD700EBF496 /* TutorBoard.xcdatamodeld */; };
 		3A94E25D206458B0000B038E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94E25C206458B0000B038E /* UserProfile.swift */; };
 		3AA7697A20644F3F00868084 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7697920644F3F00868084 /* FirebaseManager.swift */; };
 		3AA7697C2064533600868084 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7697B2064533600868084 /* SignupViewController.swift */; };
@@ -33,10 +33,10 @@
 
 /* Begin PBXFileReference section */
 		3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTutorViewController.swift; sourceTree = "<group>"; };
-		3A452CE72067357F004CF27B /* TutorBoard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TutorBoard.xcdatamodel; sourceTree = "<group>"; };
 		3A79BC6C2064C1620035DDBF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3A79BC702064C7B80035DDBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3A79BC742064C9D70035DDBF /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		3A85D7D820685BD700EBF496 /* TutorBoard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TutorBoard.xcdatamodel; sourceTree = "<group>"; };
 		3A94E25C206458B0000B038E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		3AA7697920644F3F00868084 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		3AA7697B2064533600868084 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				3ACAAFF42062CF8C00DE7AAB /* Assets.xcassets */,
 				3ACAAFF92062CF8C00DE7AAB /* Info.plist */,
 				3ACAB0052062EE4300DE7AAB /* GoogleService-Info.plist */,
-				3A452CE62067357F004CF27B /* TutorBoard.xcdatamodeld */,
+				3A85D7D720685BD700EBF496 /* TutorBoard.xcdatamodeld */,
 			);
 			path = TutorBoard;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 				3A79BC752064C9D70035DDBF /* HomeTableViewCell.swift in Sources */,
 				3AF31C40206384810066BA90 /* LoginTextField.swift in Sources */,
 				3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */,
-				3A452CE82067357F004CF27B /* TutorBoard.xcdatamodeld in Sources */,
+				3A85D7D920685BD800EBF496 /* TutorBoard.xcdatamodeld in Sources */,
 				3AF74E172067051100366633 /* CoreDataManager.swift in Sources */,
 				3A2AAAF5206606EE00BFFE84 /* DetailTutorViewController.swift in Sources */,
 				3ACAAFEB2062CF8C00DE7AAB /* AppDelegate.swift in Sources */,
@@ -540,14 +540,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3A452CE62067357F004CF27B /* TutorBoard.xcdatamodeld */ = {
+		3A85D7D720685BD700EBF496 /* TutorBoard.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3A452CE72067357F004CF27B /* TutorBoard.xcdatamodel */,
+				3A85D7D820685BD700EBF496 /* TutorBoard.xcdatamodel */,
 			);
-			currentVersion = 3A452CE72067357F004CF27B /* TutorBoard.xcdatamodel */;
-			name = TutorBoard.xcdatamodeld;
-			path = ../../TutorBoard.xcdatamodeld;
+			currentVersion = 3A85D7D820685BD700EBF496 /* TutorBoard.xcdatamodel */;
+			path = TutorBoard.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

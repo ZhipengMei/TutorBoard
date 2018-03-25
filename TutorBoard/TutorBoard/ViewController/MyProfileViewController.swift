@@ -39,7 +39,8 @@ class MyProfileViewController: UITableViewController {
         FirebaseManager().FirebaseLogout()
         
         // go to SignIn Controller
-        SegueController().segueToSignInController(controller: self)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
+        self.present(vc, animated: true, completion: nil)
     }
 
 
