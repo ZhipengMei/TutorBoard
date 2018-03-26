@@ -13,6 +13,8 @@ class CustomCell: UITableViewCell {
     // Tutor Cell
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var subject: UILabel!
+    @IBOutlet weak var request_button: UIButton!
+    
     
     // Review Cell
     

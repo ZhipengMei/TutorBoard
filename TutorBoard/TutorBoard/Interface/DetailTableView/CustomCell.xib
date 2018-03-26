@@ -61,6 +61,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="name" destination="iTW-rk-8ON" id="S8y-U1-igL"/>
+                <outlet property="request_button" destination="aIM-vb-pOu" id="xhR-5q-qvp"/>
                 <outlet property="subject" destination="KjI-2i-fJo" id="IDW-dx-U6g"/>
             </connections>
             <point key="canvasLocation" x="-78.5" y="289"/>

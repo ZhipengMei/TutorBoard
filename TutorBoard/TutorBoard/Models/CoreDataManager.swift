@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import JSQMessagesViewController
+
+// MARK: - Tutor(Account) Module
 
 // Firebase Network Fetch -> userProfile -> CoreData
 class CoreDataManager {
@@ -51,10 +54,72 @@ class CoreDataManager {
         return result[0]
     }
     
-    
 }
 
 
+
+// MARK: - Conversation Module
+extension CoreDataManager {
+    
+    //save conversation
+    func setupConversation(conversationID: String, userid: String) {
+        //managed context
+        context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+        
+        // initializing Conversation Entity
+        let conversation_entity = NSEntityDescription.entity(forEntityName: "Conversation", in: context)
+        let new_conversation = NSManagedObject(entity: conversation_entity!, insertInto: context)
+        new_conversation.setValue(conversationID, forKey: "conversationID")
+        
+        //link conversation to tutor (one to many relationship)
+        let tutor = fetchSingleUser(userid: userid)
+        tutor.addToConversation(new_conversation as! Conversation)
+        
+        try! context.save()
+    }
+    
+    //fetch one conversation
+    func fetchSingleConversation(conversationID: String) -> Conversation{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Conversation")
+        request.predicate = NSPredicate(format: "conversationID = %@", conversationID)
+        request.fetchLimit = 1
+        request.returnsObjectsAsFaults = false
+        let result = try! context.fetch(request) as! [Conversation]
+        return result[0]
+    }
+    
+}
+
+// MARK: - Message Module
+extension CoreDataManager {
+
+    //save a message
+    func saveMessage(messageData: NSDictionary, conversationID: String) {
+        //managed context
+        context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+        
+//        //parse JSQMessage to dictionary
+//        let dict_messageData = MessageModel().JSQMessageToDictionary(JSQmsg: messageData)
+        
+        
+        //Save to coredate
+        // initializing Conversation Entity
+        let message_entity = NSEntityDescription.entity(forEntityName: "Message", in: context)
+        let new_message = NSManagedObject(entity: message_entity!, insertInto: context)
+        //new_message.setValue(messageData, forKey: "uniqueid")
+        new_message.setValuesForKeys(messageData as! [String : Any])
+
+        //link conversation to tutor (one to many relationship)
+        let conversation = fetchSingleConversation(conversationID: conversationID)
+        conversation.addToMessage(new_message as! Message)
+        
+        try! context.save()
+    }
+    
+    
+    
+    
+}
 
 
 

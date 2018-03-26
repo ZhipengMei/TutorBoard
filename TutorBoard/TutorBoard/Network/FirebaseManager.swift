@@ -111,3 +111,20 @@ class FirebaseManager: NSObject {
     
 }
 
+// MARK: - Saving Messages to Database
+extension FirebaseManager {
+    
+    func UploadChatMessage(conversationID: String, message: Dictionary<String, Any>) {
+        ref.child("Conversation").child(conversationID).childByAutoId().setValue(message)
+    }
+    
+    //only listen to new child added
+    func fetchMessages(conversationID: String, completion: @escaping (Dictionary<String, Any>)->()) {
+        ref.child("Conversation").child(conversationID).observe(DataEventType.childAdded, with: { (snapshot) in
+            //.value get the child data, ignoring the child's id
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            completion(postDict)
+        })
+    }
+    
+}

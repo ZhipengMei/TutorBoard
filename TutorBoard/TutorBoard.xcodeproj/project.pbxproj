@@ -12,10 +12,15 @@
 		3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC702064C7B80035DDBF /* HomeViewController.swift */; };
 		3A79BC752064C9D70035DDBF /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC742064C9D70035DDBF /* HomeTableViewCell.swift */; };
 		3A85D7D920685BD800EBF496 /* TutorBoard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A85D7D720685BD700EBF496 /* TutorBoard.xcdatamodeld */; };
+		3A85D7E62068B74E00EBF496 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85D7E52068B74E00EBF496 /* ChatViewController.swift */; };
+		3A85D7E82068C10300EBF496 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85D7E72068C10300EBF496 /* ContactListViewController.swift */; };
+		3A85D7EA2068C18E00EBF496 /* ContactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85D7E92068C18E00EBF496 /* ContactListCell.swift */; };
+		3A85D7EC2068E5BE00EBF496 /* SegueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85D7EB2068E5BE00EBF496 /* SegueManager.swift */; };
 		3A94E25D206458B0000B038E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94E25C206458B0000B038E /* UserProfile.swift */; };
 		3AA7697A20644F3F00868084 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7697920644F3F00868084 /* FirebaseManager.swift */; };
 		3AA7697C2064533600868084 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7697B2064533600868084 /* SignupViewController.swift */; };
 		3AA7697E2064540400868084 /* ChooseRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7697D2064540400868084 /* ChooseRoleViewController.swift */; };
+		3AAAFBBF2068FC1100F3B34C /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFBBE2068FC1100F3B34C /* MessageModel.swift */; };
 		3ACA8ABC20658092000B114F /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA8ABB20658092000B114F /* MyProfileViewController.swift */; };
 		3ACAAFEB2062CF8C00DE7AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACAAFEA2062CF8C00DE7AAB /* AppDelegate.swift */; };
 		3ACAAFED2062CF8C00DE7AAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACAAFEC2062CF8C00DE7AAB /* LoginViewController.swift */; };
@@ -37,10 +42,15 @@
 		3A79BC702064C7B80035DDBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3A79BC742064C9D70035DDBF /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		3A85D7D820685BD700EBF496 /* TutorBoard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TutorBoard.xcdatamodel; sourceTree = "<group>"; };
+		3A85D7E52068B74E00EBF496 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		3A85D7E72068C10300EBF496 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		3A85D7E92068C18E00EBF496 /* ContactListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCell.swift; sourceTree = "<group>"; };
+		3A85D7EB2068E5BE00EBF496 /* SegueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueManager.swift; sourceTree = "<group>"; };
 		3A94E25C206458B0000B038E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		3AA7697920644F3F00868084 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		3AA7697B2064533600868084 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3AA7697D2064540400868084 /* ChooseRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoleViewController.swift; sourceTree = "<group>"; };
+		3AAAFBBE2068FC1100F3B34C /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		3ACA8ABB20658092000B114F /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		3ACAAFE72062CF8C00DE7AAB /* TutorBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACAAFEA2062CF8C00DE7AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +99,16 @@
 			path = "Home Interface";
 			sourceTree = "<group>";
 		};
+		3A85D7E42068B72B00EBF496 /* Chat Feature */ = {
+			isa = PBXGroup;
+			children = (
+				3A85D7E52068B74E00EBF496 /* ChatViewController.swift */,
+				3A85D7E72068C10300EBF496 /* ContactListViewController.swift */,
+				3A85D7E92068C18E00EBF496 /* ContactListCell.swift */,
+			);
+			path = "Chat Feature";
+			sourceTree = "<group>";
+		};
 		3AA7697820644F2800868084 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +151,7 @@
 				3AA7697820644F2800868084 /* Network */,
 				3AF31C35206384810066BA90 /* Models */,
 				3AF31C2F206384810066BA90 /* Interface */,
+				3A85D7E42068B72B00EBF496 /* Chat Feature */,
 				3AF31C2E206383C10066BA90 /* ViewController */,
 				3ACAAFEE2062CF8C00DE7AAB /* Main.storyboard */,
 				3ACAAFF62062CF8C00DE7AAB /* LaunchScreen.storyboard */,
@@ -171,6 +192,8 @@
 			children = (
 				3A94E25C206458B0000B038E /* UserProfile.swift */,
 				3AF74E162067051100366633 /* CoreDataManager.swift */,
+				3A85D7EB2068E5BE00EBF496 /* SegueManager.swift */,
+				3AAAFBBE2068FC1100F3B34C /* MessageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -292,6 +315,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TutorBoard/Pods-TutorBoard-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -299,6 +325,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -339,15 +368,20 @@
 				3AA7697A20644F3F00868084 /* FirebaseManager.swift in Sources */,
 				3AA7697C2064533600868084 /* SignupViewController.swift in Sources */,
 				3ACAAFED2062CF8C00DE7AAB /* LoginViewController.swift in Sources */,
+				3A85D7EA2068C18E00EBF496 /* ContactListCell.swift in Sources */,
+				3AAAFBBF2068FC1100F3B34C /* MessageModel.swift in Sources */,
 				3A79BC6D2064C1620035DDBF /* TabBarController.swift in Sources */,
 				3AA7697E2064540400868084 /* ChooseRoleViewController.swift in Sources */,
 				3AF31C3E206384810066BA90 /* LoginButton.swift in Sources */,
 				3A79BC752064C9D70035DDBF /* HomeTableViewCell.swift in Sources */,
 				3AF31C40206384810066BA90 /* LoginTextField.swift in Sources */,
 				3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */,
+				3A85D7E82068C10300EBF496 /* ContactListViewController.swift in Sources */,
+				3A85D7E62068B74E00EBF496 /* ChatViewController.swift in Sources */,
 				3A85D7D920685BD800EBF496 /* TutorBoard.xcdatamodeld in Sources */,
 				3AF74E172067051100366633 /* CoreDataManager.swift in Sources */,
 				3A2AAAF5206606EE00BFFE84 /* DetailTutorViewController.swift in Sources */,
+				3A85D7EC2068E5BE00EBF496 /* SegueManager.swift in Sources */,
 				3ACAAFEB2062CF8C00DE7AAB /* AppDelegate.swift in Sources */,
 				3A94E25D206458B0000B038E /* UserProfile.swift in Sources */,
 			);

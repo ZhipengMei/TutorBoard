@@ -28,13 +28,6 @@ class DetailTutorViewController: UIViewController {
         }
         
     }
-    
-    func configureUIData() {
-        
-    }
-    
-    
-
 
 }
 
@@ -60,10 +53,14 @@ extension DetailTutorViewController: UITableViewDelegate, UITableViewDataSource 
         if indexPath.section == 0 {
             cells[0].name.text = tutor_profile.firstname! + tutor_profile.lastname!
             cells[0].subject.text = tutor_profile.subject!
-            
+            cells[0].request_button.addTarget(self, action: #selector(request_action), for: .touchUpInside)
             return cells[0]
         }
         return cells[1]
+    }
+    
+    @objc func request_action(sender: UIButton){
+        SegueManager().toChatViewController(receiver: tutor_profile.uniqueid!, navController: navigationController!)
     }
     
     // modify the cell's custom height

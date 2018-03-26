@@ -56,8 +56,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected_tutor = tutors.object(at: indexPath) as! Tutor
-        
-        //TODO
+
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailTutorViewController") as! DetailTutorViewController
         vc.tutor_id = selected_tutor.uniqueid!
         self.navigationController?.pushViewController(vc, animated: true)
