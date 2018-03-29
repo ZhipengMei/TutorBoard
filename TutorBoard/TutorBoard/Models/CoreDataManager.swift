@@ -26,10 +26,8 @@ class CoreDataManager {
         
         // initializing Tutor Entity
         let tutor_entity = NSEntityDescription.entity(forEntityName: "Tutor", in: context)
-        //for (index, element) in Tutors.enumerated() {
         for element in Tutors {
             let tutor = NSManagedObject(entity: tutor_entity!, insertInto: context)
-            //tutor.setValue(item, forKey: "name")
             tutor.setValuesForKeys(element.UserProfileToDictionary())        
         }
         try! context.save()
@@ -51,7 +49,7 @@ class CoreDataManager {
         request.fetchLimit = 1
         request.returnsObjectsAsFaults = false
         let result = try! context.fetch(request) as! [Tutor]
-        return result[0]
+        return result[0]        
     }
     
 }

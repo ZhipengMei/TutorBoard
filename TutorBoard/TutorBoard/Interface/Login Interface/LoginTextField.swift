@@ -17,9 +17,9 @@ class LoginTextField: UITextField {
     }
 
     private func configureUI() {
-        self.layer.borderColor = UIColor.gray.cgColor
-        self.layer.borderWidth = 0.5
-        self.layer.cornerRadius = 4.0
+        self.layer.borderColor = UIColor.clear.cgColor//UIColor.gray.cgColor
+//        //self.layer.borderWidth = 0.5
+//        self.layer.cornerRadius = 4.0
         self.backgroundColor = UIColor.clear
         self.textColor = UIColor.white
     }

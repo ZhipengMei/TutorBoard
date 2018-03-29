@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A112278206D6B4400B2EAB6 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A112277206D6B4400B2EAB6 /* ContinueButton.swift */; };
 		3A2AAAF5206606EE00BFFE84 /* DetailTutorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */; };
 		3A79BC6D2064C1620035DDBF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC6C2064C1620035DDBF /* TabBarController.swift */; };
 		3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC702064C7B80035DDBF /* HomeViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A112277206D6B4400B2EAB6 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTutorViewController.swift; sourceTree = "<group>"; };
 		3A79BC6C2064C1620035DDBF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3A79BC702064C7B80035DDBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				3AF31C31206384810066BA90 /* LoginButton.swift */,
 				3AF31C33206384810066BA90 /* LoginTextField.swift */,
+				3A112277206D6B4400B2EAB6 /* ContinueButton.swift */,
 			);
 			path = "Login Interface";
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				3AF31C40206384810066BA90 /* LoginTextField.swift in Sources */,
 				3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */,
 				3A85D7E82068C10300EBF496 /* ContactListViewController.swift in Sources */,
+				3A112278206D6B4400B2EAB6 /* ContinueButton.swift in Sources */,
 				3A85D7E62068B74E00EBF496 /* ChatViewController.swift in Sources */,
 				3A85D7D920685BD800EBF496 /* TutorBoard.xcdatamodeld in Sources */,
 				3AF74E172067051100366633 /* CoreDataManager.swift in Sources */,

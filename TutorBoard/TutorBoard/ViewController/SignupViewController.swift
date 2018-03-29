@@ -18,7 +18,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var email_texxtfield: UITextField!
     @IBOutlet weak var subject_textfield: UITextField!
     @IBOutlet weak var password_textfield: UITextField!
-    let uniqueid = "" //temporary placeholder
+    var uniqueid = "" //temporary placeholder
     
     //label
     @IBOutlet weak var role_label: UILabel!

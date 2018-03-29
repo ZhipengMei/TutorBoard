@@ -19,7 +19,7 @@ class MyProfileViewController: UITableViewController {
         super.viewDidLoad()
 
         myprofile = CoreDataManager().fetchSingleUser(userid: FirebaseManager().userID())
-        configureUIData()
+        //configureUIData()
         
         
         // Uncomment the following line to preserve selection between presentations

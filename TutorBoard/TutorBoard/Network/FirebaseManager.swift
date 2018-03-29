@@ -92,8 +92,8 @@ class FirebaseManager: NSObject {
     
     // fetch Tutor's info (download once)
     func FirebaseFetchTutors(completion: @escaping ([UserProfile])->()) {
-        
-        ref.child("users").child("Tutor").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("users").child("Tutor").observe(DataEventType.childAdded, with: { (snapshot) in
+        //ref.child("users").child("Tutor").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let tutors:[UserProfile] = UserProfile().parseMultipleDataSnapshot(data: snapshot)
             
