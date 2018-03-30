@@ -19,6 +19,8 @@ class UserProfile: NSObject {
     var password: String!
     var role: String!
     var uniqueid: String!
+    var bio: String!
+    var profilePic: String!
     
     override init() {
         super.init()
@@ -33,6 +35,8 @@ class UserProfile: NSObject {
         self.password = data[4] as! String
         self.role = data[5] as! String
         self.uniqueid = data[6] as! String
+        self.bio = data[7] as! String
+        self.profilePic = data[7] as! String
     }
     
     // create a dictionary for upload data to firebase
@@ -42,7 +46,9 @@ class UserProfile: NSObject {
                          "email": self.email!,
                          "subject": self.subject!,
                          "role": self.role!,
-                         "uniqueid": self.uniqueid!]
+                         "uniqueid": self.uniqueid!,
+                         "bio": self.bio!,
+                         "profilePic": self.profilePic!]
         return dict_data        
     }
     
@@ -54,6 +60,8 @@ class UserProfile: NSObject {
         self.subject = data["subject"] as! String
         self.role = data["role"] as! String
         self.uniqueid = data["uniqueid"] as! String
+        self.bio = data["bio"] as! String
+        self.profilePic = data["profilePic"] as! String
     }
     
     //parse returned datasnapshots (multiple profile data)

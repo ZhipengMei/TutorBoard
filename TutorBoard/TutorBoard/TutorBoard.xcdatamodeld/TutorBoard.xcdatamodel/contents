@@ -25,9 +25,11 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Tutor" representedClassName="Tutor" syncable="YES" codeGenerationType="class">
+        <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePic" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="role" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uniqueid" optional="YES" attributeType="String" syncable="YES"/>
@@ -41,6 +43,6 @@
     <elements>
         <element name="Conversation" positionX="-479" positionY="-124" width="128" height="90"/>
         <element name="Message" positionX="-315" positionY="-63" width="128" height="150"/>
-        <element name="Tutor" positionX="-648" positionY="-252" width="128" height="148"/>
+        <element name="Tutor" positionX="-648" positionY="-252" width="128" height="180"/>
     </elements>
 </model>

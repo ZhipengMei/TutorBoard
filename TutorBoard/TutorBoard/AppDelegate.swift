@@ -15,23 +15,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
         
-        //check user persist
-        FirebaseManager().isFirebaseUserSignedIn(completion: { (isFinished) in
-            if isFinished == true {
-                //User is signed in, go to tab bar
-                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let home: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
-                self.window?.rootViewController = home
-            }
-        })
+        firstTimeLogin()
+        
+        configureNavBarUI()
         
         return true
+    }
+    
+    func configureNavBarUI() {
+        // get appearance object
+        let navigationAppearance = UINavigationBar.appearance()
+        // change color of navigation bar background
+        navigationAppearance.barTintColor = UIColor(red: 69/255, green: 122/255, blue: 177/255, alpha: 1)
+        // change color of navigation bar items (buttons)
+        navigationAppearance.tintColor = UIColor.white
+        // change color of navigation bar title
+        navigationAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white];
+        // hide the back button text
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
+    }
+    
+    func firstTimeLogin() {
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.value(forKey: "appFirstTimeOpend") == nil {
+            //if app is first time opened then it will be nil
+            userDefaults.setValue(true, forKey: "appFirstTimeOpend")
+            // signOut from FIRAuth
+            try! Auth.auth().signOut()
+            // go to beginning of app
+        } else {
+            //check user persist
+            FirebaseManager().isFirebaseUserSignedIn(completion: { (isFinished) in
+                if isFinished == true {
+                    //User is signed in, go to tab bar
+                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let home: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+                    self.window?.rootViewController = home
+                }
+            })
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

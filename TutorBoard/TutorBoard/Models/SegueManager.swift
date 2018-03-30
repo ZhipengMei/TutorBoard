@@ -11,12 +11,36 @@ import UIKit
 // This class perform segue/going to another view
 class SegueManager {
     
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     func toChatViewController(receiver: String, navController: UINavigationController){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         vc.receiver = receiver
         navController.pushViewController(vc, animated: true)
     }
+    
+
+    // go to Tab Bar
+    func toTabBar(controller: UIViewController) {
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier:
+            "TabBarController") as? TabBarController {
+            controller.present(tabBarController, animated: true, completion: nil)
+        }
+    }
+    
+    func toLoginNavigationController(controller: UIViewController) {
+        // go to SignIn Controller
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
+        controller.present(vc, animated: true, completion: nil)
+    }
+    
+    func hideNavBar(navController: UINavigationController) {
+        navController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navController.navigationBar.shadowImage = UIImage()
+        navController.navigationBar.isTranslucent = true
+        navController.view.backgroundColor = UIColor.clear
+    }
+    
+
     
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A112278206D6B4400B2EAB6 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A112277206D6B4400B2EAB6 /* ContinueButton.swift */; };
+		3A11227B206DE4C400B2EAB6 /* HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11227A206DE4C400B2EAB6 /* HomeMenu.swift */; };
 		3A2AAAF5206606EE00BFFE84 /* DetailTutorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */; };
 		3A79BC6D2064C1620035DDBF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC6C2064C1620035DDBF /* TabBarController.swift */; };
 		3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC702064C7B80035DDBF /* HomeViewController.swift */; };
@@ -29,6 +30,8 @@
 		3ACAAFF52062CF8C00DE7AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ACAAFF42062CF8C00DE7AAB /* Assets.xcassets */; };
 		3ACAAFF82062CF8C00DE7AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ACAAFF62062CF8C00DE7AAB /* LaunchScreen.storyboard */; };
 		3ACAB0062062EE4300DE7AAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ACAB0052062EE4300DE7AAB /* GoogleService-Info.plist */; };
+		3AE9D727206E29B9004A2ABA /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9D726206E29B9004A2ABA /* BioViewController.swift */; };
+		3AE9D72A206E42E2004A2ABA /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9D729206E42E2004A2ABA /* EditProfileTableViewController.swift */; };
 		3AF31C3E206384810066BA90 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF31C31206384810066BA90 /* LoginButton.swift */; };
 		3AF31C40206384810066BA90 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF31C33206384810066BA90 /* LoginTextField.swift */; };
 		3AF74E132066F4ED00366633 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF74E122066F4ED00366633 /* CustomCell.xib */; };
@@ -39,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		3A112277206D6B4400B2EAB6 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
+		3A11227A206DE4C400B2EAB6 /* HomeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenu.swift; sourceTree = "<group>"; };
 		3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTutorViewController.swift; sourceTree = "<group>"; };
 		3A79BC6C2064C1620035DDBF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3A79BC702064C7B80035DDBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		3ACAAFF72062CF8C00DE7AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ACAAFF92062CF8C00DE7AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ACAB0052062EE4300DE7AAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3AE9D726206E29B9004A2ABA /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
+		3AE9D729206E42E2004A2ABA /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		3AF31C31206384810066BA90 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		3AF31C33206384810066BA90 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		3AF74E122066F4ED00366633 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
@@ -84,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A112279206DE49F00B2EAB6 /* HomeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3A11227A206DE4C400B2EAB6 /* HomeMenu.swift */,
+			);
+			path = HomeMenu;
+			sourceTree = "<group>";
+		};
 		3A79BC722064C7E10035DDBF /* Login Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,15 +180,41 @@
 			path = TutorBoard;
 			sourceTree = "<group>";
 		};
-		3AF31C2E206383C10066BA90 /* ViewController */ = {
+		3AE9D724206E2974004A2ABA /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				3ACAAFEC2062CF8C00DE7AAB /* LoginViewController.swift */,
-				3AA7697D2064540400868084 /* ChooseRoleViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3AE9D725206E2997004A2ABA /* Signup */ = {
+			isa = PBXGroup;
+			children = (
 				3AA7697B2064533600868084 /* SignupViewController.swift */,
+				3AE9D726206E29B9004A2ABA /* BioViewController.swift */,
+				3AA7697D2064540400868084 /* ChooseRoleViewController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		3AE9D728206E42C1004A2ABA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3ACA8ABB20658092000B114F /* MyProfileViewController.swift */,
+				3AE9D729206E42E2004A2ABA /* EditProfileTableViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3AF31C2E206383C10066BA90 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9D724206E2974004A2ABA /* Login */,
+				3AE9D725206E2997004A2ABA /* Signup */,
+				3AE9D728206E42C1004A2ABA /* Profile */,
 				3A79BC6C2064C1620035DDBF /* TabBarController.swift */,
 				3A79BC702064C7B80035DDBF /* HomeViewController.swift */,
-				3ACA8ABB20658092000B114F /* MyProfileViewController.swift */,
 				3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */,
 			);
 			path = ViewController;
@@ -183,6 +223,7 @@
 		3AF31C2F206384810066BA90 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				3A112279206DE49F00B2EAB6 /* HomeMenu */,
 				3ACA8ABF20658C2A000B114F /* DetailTableView */,
 				3A79BC722064C7E10035DDBF /* Login Interface */,
 				3A79BC732064C8250035DDBF /* Home Interface */,
@@ -374,12 +415,15 @@
 				3A85D7EA2068C18E00EBF496 /* ContactListCell.swift in Sources */,
 				3AAAFBBF2068FC1100F3B34C /* MessageModel.swift in Sources */,
 				3A79BC6D2064C1620035DDBF /* TabBarController.swift in Sources */,
+				3AE9D72A206E42E2004A2ABA /* EditProfileTableViewController.swift in Sources */,
 				3AA7697E2064540400868084 /* ChooseRoleViewController.swift in Sources */,
 				3AF31C3E206384810066BA90 /* LoginButton.swift in Sources */,
 				3A79BC752064C9D70035DDBF /* HomeTableViewCell.swift in Sources */,
+				3AE9D727206E29B9004A2ABA /* BioViewController.swift in Sources */,
 				3AF31C40206384810066BA90 /* LoginTextField.swift in Sources */,
 				3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */,
 				3A85D7E82068C10300EBF496 /* ContactListViewController.swift in Sources */,
+				3A11227B206DE4C400B2EAB6 /* HomeMenu.swift in Sources */,
 				3A112278206D6B4400B2EAB6 /* ContinueButton.swift in Sources */,
 				3A85D7E62068B74E00EBF496 /* ChatViewController.swift in Sources */,
 				3A85D7D920685BD800EBF496 /* TutorBoard.xcdatamodeld in Sources */,

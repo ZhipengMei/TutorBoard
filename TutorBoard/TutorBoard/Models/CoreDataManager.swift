@@ -43,13 +43,23 @@ class CoreDataManager {
         return frc
     }()
     
+    //download data from firebase first, save it to coredata, then fetch from coredata for display
     func fetchSingleUser(userid: String) -> Tutor {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tutor")
         request.predicate = NSPredicate(format: "uniqueid = %@", userid)
         request.fetchLimit = 1
         request.returnsObjectsAsFaults = false
-        let result = try! context.fetch(request) as! [Tutor]
-        return result[0]        
+        do {
+            let result = try! context.fetch(request) as! [Tutor]
+            print("fetched tutor")
+            print(result[0])
+            return result[0]
+        } catch {
+            print("Error: cannot fetchSingleUser")
+        }
+        
+//        let result = try! context.fetch(request) as! [Tutor]
+//        return result[0]
     }
     
 }
