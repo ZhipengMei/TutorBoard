@@ -31,6 +31,11 @@ class HomeViewController: UIViewController {
             //maybe optional to reload
             self.tableview.reloadData()
         })
+        
+        FirebaseManager().FirebaseFetchTutorChildChanged(completion: {(returnedTutors) -> () in
+        
+            self.tableview.reloadData()
+        })
     }
 
     

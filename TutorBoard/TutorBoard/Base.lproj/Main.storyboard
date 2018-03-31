@@ -627,12 +627,11 @@
         <!--Edit Profile Table View Controller-->
         <scene sceneID="f2u-oF-M5i">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H2k-40-VgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="RTr-gN-bpe" customClass="EditProfileTableViewController" customModule="TutorBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cIk-Qi-T7c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection id="7f1-X2-0HF">
                                 <cells>
@@ -655,7 +654,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.80225185659999998" green="1" blue="0.90128634529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="8xJ-tC-s34">
@@ -680,9 +679,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.30099220240000002" green="1" blue="0.3940839143" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.30099220240000002" green="1" blue="0.3940839143" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="jDc-en-K58">
                                         <rect key="frame" x="0.0" y="151" width="375" height="70"/>
@@ -706,7 +704,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.80225185659999998" green="1" blue="0.90128634529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="110" id="X7D-Cl-61m">
@@ -731,9 +729,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.30099220240000002" green="1" blue="0.3940839143" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.30099220240000002" green="1" blue="0.3940839143" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="S01-CT-deU" kind="show" identifier="toUpdateBio" id="zpz-Qz-wz7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -745,12 +745,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="WaX-Us-dyw"/>
                     <connections>
+                        <outlet property="bio_textview" destination="DYJ-re-RjP" id="uA0-Hj-QLK"/>
                         <outlet property="image_cell" destination="1bf-Af-FdE" id="l5t-n4-JxQ"/>
                         <outlet property="name_label" destination="WhI-Gl-3QC" id="gUn-AX-i9I"/>
                         <outlet property="profile_img" destination="qiR-kH-YIF" id="hHX-Am-khz"/>
                         <outlet property="subject_label" destination="Zae-oz-PQr" id="IPe-wm-Afz"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H2k-40-VgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="352.80000000000001" y="3165.9670164917543"/>
         </scene>
@@ -838,6 +840,7 @@
         <!--SIgn up-->
         <scene sceneID="j7m-oU-xHy">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvD-Gu-tE6" sceneMemberID="firstResponder"/>
                 <viewController title="SIgn up" id="rHT-nR-eET" customClass="BioViewController" customModule="TutorBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zc4-WJ-sqe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -894,7 +897,6 @@
                         <outlet property="bio_textview" destination="IeJ-vz-aik" id="JU7-mX-vx3"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fvD-Gu-tE6" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1485.5999999999999" y="133.5832083958021"/>
         </scene>
@@ -1089,6 +1091,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hd7-oR-SyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="353" y="2438"/>
+        </scene>
+        <!--SIgn up-->
+        <scene sceneID="5aV-4e-ZZT">
+            <objects>
+                <viewController title="SIgn up" id="S01-CT-deU" customClass="UpdateBioViewController" customModule="TutorBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Pj-Au-8Bn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-CY-v1e" customClass="ContinueButton" customModule="TutorBoard" customModuleProvider="target">
+                                <rect key="frame" x="275" y="351" width="55" height="55"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.34901960780000002" blue="0.63529411759999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="8xT-HP-vfP"/>
+                                    <constraint firstAttribute="height" constant="55" id="fCC-ZM-2Kp"/>
+                                </constraints>
+                                <state key="normal" image="arrow-point-to-right"/>
+                                <connections>
+                                    <action selector="saveBio:" destination="S01-CT-deU" eventType="touchUpInside" id="tAq-8v-Aq9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RED-Wg-FDk">
+                                <rect key="frame" x="165" y="86" width="45" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="IBI-oo-vCx"/>
+                                    <constraint firstAttribute="width" constant="45" id="lnu-ZR-6hf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Bio:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhX-wU-q8v">
+                                <rect key="frame" x="44" y="129" width="286" height="192"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="X2c-qg-Ut8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.27058823529999998" green="0.47843137250000001" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DhX-wU-q8v" firstAttribute="trailing" secondItem="BpF-CY-v1e" secondAttribute="trailing" id="1mT-xq-9zo"/>
+                            <constraint firstItem="RED-Wg-FDk" firstAttribute="centerX" secondItem="DhX-wU-q8v" secondAttribute="centerX" id="6Ph-gA-yLA"/>
+                            <constraint firstItem="DhX-wU-q8v" firstAttribute="leading" secondItem="31B-SF-Qhn" secondAttribute="leading" constant="44" id="8B9-sa-RIn"/>
+                            <constraint firstItem="BpF-CY-v1e" firstAttribute="top" secondItem="DhX-wU-q8v" secondAttribute="bottom" constant="30" id="LKA-qU-Cv1"/>
+                            <constraint firstItem="DhX-wU-q8v" firstAttribute="top" secondItem="RED-Wg-FDk" secondAttribute="bottom" constant="8" symbolic="YES" id="Lv8-6y-yad"/>
+                            <constraint firstItem="RED-Wg-FDk" firstAttribute="top" secondItem="31B-SF-Qhn" secondAttribute="top" constant="22" id="cpz-2i-n9L"/>
+                            <constraint firstItem="DhX-wU-q8v" firstAttribute="centerX" secondItem="3Pj-Au-8Bn" secondAttribute="centerX" id="qBh-5v-2uO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="31B-SF-Qhn"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="nOD-w8-wTw">
+                        <barButtonItem key="backBarButtonItem" title=" " id="f5X-5W-oUy"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bio_textview" destination="DhX-wU-q8v" id="haK-IV-Sxw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Exc-lP-Vdb" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="353" y="3899"/>
         </scene>
     </scenes>
     <resources>

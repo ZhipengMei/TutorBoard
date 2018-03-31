@@ -94,21 +94,31 @@ class FirebaseManager: NSObject {
     //firebase data root reference
     let ref = Database.database().reference()
     
-    // upload new user's data
+    // update new user's data
     func FirebaseUpdateCurrentUserProfile(user_dict: Dictionary<String, String> , completion: @escaping (Bool)->()) {
         ref.child("users").child(user_dict["role"]!).child(userID()).setValue(user_dict)
         print("Success: Updated user's profile")
         completion(true)
     }
+
+    //update one attribute user's data
+    func FirebaseUpdateOneAttribute(thisUser: Tutor, attribute: String, newValue: String, completion: @escaping (Bool)->()) {
+        ref.child("users").child(thisUser.role!).child(thisUser.uniqueid!).child(attribute).setValue(newValue)
+        print("Success: Updated user's new attribute \(attribute)")
+        completion(true)
+    }
     
-    // fetch Tutor's info (download once)
+    
+    // fetch Tutor's info (child added)
     func FirebaseFetchTutors(completion: @escaping ([UserProfile])->()) {
-        ref.child("users").child("Tutor").observe(DataEventType.childAdded, with: { (snapshot) in
+        //ref.child("users").child("Tutor").observe(DataEventType.childAdded, with: { (snapshot) in
+        ref.child("users").child("Tutor").observe(DataEventType.childChanged, with: { (snapshot) in
             
             let tutors:[UserProfile] = UserProfile().parseMultipleDataSnapshot(data: snapshot)
-            
             //save tutors dictionary into CoreData
             CoreDataManager().SaveTutorObjectToCoreData(Tutors: tutors)
+            
+            //CoreDataManager().UpdateSingleUser(thisTutor: snapshot.value)
             
             //return tutors dictionary
             completion(tutors)
@@ -117,6 +127,23 @@ class FirebaseManager: NSObject {
             print(error.localizedDescription)
         }
     }
+    
+    // fetch Tutor's info (child changed)
+    func FirebaseFetchTutorChildChanged(completion: @escaping (UserProfile)->()) {
+        ref.child("users").child("Tutor").observe(DataEventType.childChanged, with: { (snapshot) in
+            print("DataEventType.childChanged")
+            
+            let tutor = UserProfile(data: snapshot)
+            CoreDataManager().UpdateSingleUser(thisTutor: tutor)
+            
+            //return tutors dictionary
+            completion(tutor)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+
     
     func FireBaseFetchSingleUser(userid: String, completion: @escaping (Bool)->()) {
         ref.child("users").child("Tutor").child(userid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -164,6 +191,7 @@ class FirebaseManager: NSObject {
             completion(true)
         })
     }
+    
 }
 
 // MARK: - Saving Messages to Database

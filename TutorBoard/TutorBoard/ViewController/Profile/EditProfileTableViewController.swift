@@ -17,22 +17,27 @@ class EditProfileTableViewController: UITableViewController {
     @IBOutlet weak var name_label: UILabel!
     @IBOutlet weak var subject_label: UILabel!
     @IBOutlet weak var profile_img: UIImageView!
+    @IBOutlet weak var bio_textview: UILabel!
     @IBOutlet weak var image_cell: UITableViewCell!
     
     var myprofile: Tutor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         myprofile = CoreDataManager().fetchSingleUser(userid: FirebaseManager().userID())
-        
         configureUIData()
+        tableView.reloadData()
     }
     
     //configuration of the UI
     func configureUIData() {
         name_label.text! = myprofile.firstname! + myprofile.lastname!
         subject_label.text! = myprofile.subject!
+        bio_textview.text! = myprofile.bio!
         
         configureProfileImageCell()
         
@@ -105,15 +110,19 @@ class EditProfileTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        if segue.identifier == "toUpdateBio" {
+            let vc = segue.destination as! UpdateBioViewController
+            vc.thisUser = myprofile
+        }
      }
-     */
+ 
     
 }
 

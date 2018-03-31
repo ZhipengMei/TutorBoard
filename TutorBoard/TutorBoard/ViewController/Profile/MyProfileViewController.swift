@@ -19,12 +19,13 @@ class MyProfileViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         myprofile = CoreDataManager().fetchSingleUser(userid: FirebaseManager().userID())
-        
         configureUIData()
-        
-
+        tableView.reloadData()
     }
     
     func configureUIData() {

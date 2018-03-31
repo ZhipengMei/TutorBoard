@@ -21,14 +21,17 @@ class CoreDataManager {
     
     
     func SaveTutorObjectToCoreData(Tutors: [UserProfile]) {
+        print("inside SaveTutorObjectToCoreData 1")
         //managed context
         context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+        //context.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
         
-        // initializing Tutor Entity
+        // initializing new Tutor Entity
         let tutor_entity = NSEntityDescription.entity(forEntityName: "Tutor", in: context)
         for element in Tutors {
+            print("inside SaveTutorObjectToCoreData 2")
             let tutor = NSManagedObject(entity: tutor_entity!, insertInto: context)
-            tutor.setValuesForKeys(element.UserProfileToDictionary())        
+            tutor.setValuesForKeys(element.UserProfileToDictionary())
         }
         try! context.save()
     }
@@ -49,18 +52,24 @@ class CoreDataManager {
         request.predicate = NSPredicate(format: "uniqueid = %@", userid)
         request.fetchLimit = 1
         request.returnsObjectsAsFaults = false
-        do {
-            let result = try! context.fetch(request) as! [Tutor]
-            print("fetched tutor")
-            print(result[0])
-            return result[0]
-        } catch {
-            print("Error: cannot fetchSingleUser")
-        }
-        
-//        let result = try! context.fetch(request) as! [Tutor]
-//        return result[0]
+
+        let result = try! context.fetch(request) as! [Tutor]
+        return result[0]
     }
+    
+    func UpdateSingleUser(thisTutor: UserProfile) {
+        print("inside UpdateSingleUser 1")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tutor")
+        request.predicate = NSPredicate(format: "uniqueid = %@", thisTutor.uniqueid!)
+        request.fetchLimit = 1
+        request.returnsObjectsAsFaults = false
+        
+        //fetch the object
+        let result = try! context.fetch(request) as! [NSManagedObject]
+        
+        result[0].setValuesForKeys(thisTutor.UserProfileToDictionary())        
+    }
+
     
 }
 

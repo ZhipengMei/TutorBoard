@@ -39,6 +39,17 @@ class UserProfile: NSObject {
         self.profilePic = data[7] as! String
     }
     
+    init(data: DataSnapshot) {
+        self.firstname = data.childSnapshot(forPath: "firstname").value! as! String
+        self.lastname = data.childSnapshot(forPath: "lastname").value! as! String
+        self.email = data.childSnapshot(forPath: "email").value! as! String
+        self.subject = data.childSnapshot(forPath: "subject").value! as! String
+        self.role = data.childSnapshot(forPath: "role").value! as! String
+        self.uniqueid = data.childSnapshot(forPath: "uniqueid").value! as! String
+        self.bio = data.childSnapshot(forPath: "bio").value! as! String
+        self.profilePic = data.childSnapshot(forPath: "profilePic").value! as! String
+    }
+    
     // create a dictionary for upload data to firebase
     func UserProfileToDictionary() -> Dictionary<String, String> {
         let dict_data = ["firstname": self.firstname!,
@@ -63,6 +74,7 @@ class UserProfile: NSObject {
         self.bio = data["bio"] as! String
         self.profilePic = data["profilePic"] as! String
     }
+    
     
     //parse returned datasnapshots (multiple profile data)
     func parseMultipleDataSnapshot(data: DataSnapshot) -> [UserProfile] {
