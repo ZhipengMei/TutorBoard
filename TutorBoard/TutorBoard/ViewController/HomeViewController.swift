@@ -34,25 +34,9 @@ class HomeViewController: UIViewController {
         })
         
         FirebaseManager().FirebaseFetchTutorChildChanged(completion: {(returnedTutors) -> () in
-        
             self.tableview.reloadData()
         })
     }
-
-    
-    
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if(segue.identifier == "toDetailTutor") {
-//            let vc = segue.destination as! DetailTutorViewController
-//            vc.tutor_id = tutorIDtoPass
-//        }
-//    }
- 
 
 }
 
@@ -88,7 +72,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if tutor.uniqueid! != FirebaseManager().userID() {
             cell.name.text = tutor.firstname! + tutor.lastname!
             cell.subject.text = tutor.subject
-            ImageModel().downloadImage(tutor.profilePic!, inView: cell.imageview)
+            
+            ImageModel().fetchImage(tutor.profilePic!, completion: {
+                (resultImage) in
+                cell.imageview.image = resultImage
+            })
         }
     }
     

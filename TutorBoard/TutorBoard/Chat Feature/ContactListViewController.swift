@@ -11,11 +11,28 @@ import UIKit
 class ContactListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var contactList = Array<String>()
+    var contactModelList = [contactModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        FirebaseManager().fetchContactedList(completion: {(result) in
+            self.contactList = result
+            
+            for conversationID in result {
+                FirebaseManager().fetchConversation(conversationID: conversationID, completion: {(newcontactModel) in
+                    //do something here with the result
+                    self.contactModelList.append(newcontactModel)
+                    self.tableView.reloadData()
+                })
+            }
+        })
     }
 
 }
@@ -25,10 +42,15 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+        SegueManager().toChatViewController(receiver: contactModelList[indexPath.row].otherClientID, navController: navigationController!)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if contactList.count > 0{
+            return contactList.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,7 +60,10 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     private func configureCell(cell: ContactListCell, indexpath: IndexPath) {
-        cell.name_label.text = "omg"
+        cell.name_label.text = contactModelList[indexpath.row].name
+        cell.text_label.text = contactModelList[indexpath.row].text
+        cell.date_label.text = contactModelList[indexpath.row].date
+        ImageModel().downloadImage(contactModelList[indexpath.row].profilePic, inView: cell.imageview)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

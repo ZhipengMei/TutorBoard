@@ -39,7 +39,29 @@ class ImageModel {
         } else {
             print("Error: URL is nil")
         }
-        
+    }
+    
+    
+    func fetchImage(_ uri : String, completion: @escaping (UIImage)->()) {
+        let url = URL(string: uri)
+        if url != nil {
+            let task = URLSession.shared.dataTask(with: url!) {responseData,response,error in
+                if error == nil{
+                    if let data = responseData {
+                        DispatchQueue.main.sync {
+                            completion(UIImage(data: data)!)
+                        }
+                    }else {
+                        print("no data")
+                    }
+                }else{
+                    print(error!)
+                }
+            }
+            task.resume()
+        } else {
+            print("Error: URL is nil")
+        }
     }
     
 }

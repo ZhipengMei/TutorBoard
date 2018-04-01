@@ -11,7 +11,9 @@ import UIKit
 class ContactListCell: UITableViewCell {
 
     @IBOutlet weak var name_label: UILabel!
-    
+    @IBOutlet weak var text_label: UILabel!
+    @IBOutlet weak var date_label: UILabel!
+    @IBOutlet weak var imageview: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -21,11 +21,12 @@ class DetailTutorViewController: UIViewController {
         tableview.delegate = self
         tableview.dataSource = self
         
-        if tutor_id != nil {
-            tutor_profile = CoreDataManager().fetchSingleUser(userid: tutor_id, completion: {_ in })
-        } else {
-            print("it is nilllllllll")
-        }
+        tutor_profile = CoreDataManager().fetchSingleUser(userid: tutor_id, completion: {_ in })
+//        if tutor_id != nil {
+//            tutor_profile = CoreDataManager().fetchSingleUser(userid: tutor_id, completion: {_ in })
+//        } else {
+//            print("it is nilllllllll")
+//        }
         
     }
 

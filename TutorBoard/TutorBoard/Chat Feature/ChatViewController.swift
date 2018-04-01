@@ -21,11 +21,15 @@ class ChatViewController: JSQMessagesViewController {
     //conversation id initialization
     var conversationID = ""
 
-    // TODO all messages here, use coredata later
+    // all messages here, use coredata later
     var messages = [JSQMessage]()
     
     var isSenderDataReady = false
     var isReceiverDataReady = false
+    
+    //profile image icon
+    var incomingAvatar: JSQMessagesAvatarImage!
+    var outgoingAvatar: JSQMessagesAvatarImage!
 }
 
 extension ChatViewController {
@@ -67,11 +71,25 @@ extension ChatViewController {
         
         if isSenderDataReady == true {
             self.senderDisplayName = self.senderInfo.firstname!
+            //download image async
+            ImageModel().fetchImage(self.senderInfo.profilePic!, completion: {
+                (resultImage) in
+                
+                self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: resultImage, diameter: 64)
+                
+            })
         }
         
         if isReceiverDataReady == true {
             //setup the title of the view
             self.title = self.receiverInfo.firstname
+
+            ImageModel().fetchImage(self.receiverInfo.profilePic!, completion: {
+                (resultImage) in
+                
+                self.incomingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: resultImage, diameter: 64)
+                
+            })
         }
         
         //create a conversation at the very beginning
@@ -117,7 +135,6 @@ extension ChatViewController {
         for msg in messageArray {
             let message = MessageModel().CoreDatatoJSQMessage(data: msg)
             messages.append(message)
-            print(message)
         }
         return messages
     }
@@ -144,8 +161,7 @@ extension ChatViewController {
         //upload messages to firebase so peer client can download the same message
         FirebaseManager().UploadChatMessage(conversationID: conversationID, message: MessageModel().JSQMessageToDictionary(JSQmsg: message!))
         
-        //FirebaseManager().saveContactedList(conversationID: conversationID)
-        FirebaseManager().fetchContactedList(conversationID: conversationID)
+        FirebaseManager().UpcateContactedList(conversationID: conversationID)
         
         finishSendingMessage()
     }
@@ -153,7 +169,6 @@ extension ChatViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.row]
         let messageUsername = message.senderDisplayName
-        
         return NSAttributedString(string: messageUsername!)
     }
     
@@ -161,9 +176,13 @@ extension ChatViewController {
         return 15
     }
     
-    //TODO
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
+        
+        let message = messages[indexPath.row]
+        if sender == message.senderId {
+            return self.outgoingAvatar
+        }
+        return self.incomingAvatar
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
@@ -173,9 +192,8 @@ extension ChatViewController {
         
         if sender == message.senderId {
             return bubbleFactory?.outgoingMessagesBubbleImage(with: .green)
-        } else {
-            return bubbleFactory?.incomingMessagesBubbleImage(with: .blue)
         }
+        return bubbleFactory?.incomingMessagesBubbleImage(with: .blue)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

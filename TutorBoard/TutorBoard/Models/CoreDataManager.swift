@@ -21,15 +21,15 @@ class CoreDataManager {
     
     
     func SaveTutorObjectToCoreData(Tutors: [UserProfile]) {
-        print("inside SaveTutorObjectToCoreData 1")
         //managed context
         context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         
         // initializing new Tutor Entity
         let tutor_entity = NSEntityDescription.entity(forEntityName: "Tutor", in: context)
         for element in Tutors {
-            print("inside SaveTutorObjectToCoreData 2")
             let tutor = NSManagedObject(entity: tutor_entity!, insertInto: context)
+            //optional: save image to coredata here
+
             tutor.setValuesForKeys(element.UserProfileToDictionary())
         }
         try! context.save()
@@ -53,15 +53,12 @@ class CoreDataManager {
         request.returnsObjectsAsFaults = false
 
         let result = try! context.fetch(request) as! [Tutor]
-        print(result.count)
-        print(result[0])
         
         completion(true)
         return result[0]
     }
     
     func UpdateSingleUser(thisTutor: UserProfile) {
-        print("inside UpdateSingleUser 1")
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tutor")
         request.predicate = NSPredicate(format: "uniqueid = %@", thisTutor.uniqueid!)
         request.fetchLimit = 1
@@ -73,6 +70,13 @@ class CoreDataManager {
         result[0].setValuesForKeys(thisTutor.UserProfileToDictionary())
         try! context.save()
     }
+    
+    //TODO
+    //save image to coredata
+//    func saveImage(image: UIImage, ) {
+//        var newImageData = UIImageJPEGRepresentation(image!, 1)
+//
+//    }
 
     
 }

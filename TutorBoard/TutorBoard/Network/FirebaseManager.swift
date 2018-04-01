@@ -196,6 +196,7 @@ class FirebaseManager: NSObject {
 // MARK: - Saving Messages to Database
 extension FirebaseManager {
     
+    //upload new chat to
     func UploadChatMessage(conversationID: String, message: Dictionary<String, Any>) {
         ref.child("Conversation").child(conversationID).childByAutoId().setValue(message)
     }
@@ -214,10 +215,40 @@ extension FirebaseManager {
         ref.child("ConversationID").child(FirebaseManager().userID()).childByAutoId().setValue(conversationID)
     }
     
-    func fetchContactedList(conversationID: String) {
+    //download entire list of client contacted
+    func fetchContactedList(completion: @escaping (Array<String>)->()) {
         var conversationIDArray = Array<String>()
         ref.child("ConversationID").child(FirebaseManager().userID()).observe(DataEventType.value, with: { (snapshot) in
             //let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            
+            //check and upload new contact ID
+            //parse all child value into one array
+            for child in snapshot.children {
+                conversationIDArray.append((child as! DataSnapshot).value! as! String)
+            }
+             completion(conversationIDArray)
+        })
+    }
+    
+    //TODO
+    //download last text, other client's name and profile image
+    func fetchConversation(conversationID: String, completion: @escaping (contactModel)->()) {
+        //fetch the last message from that specific table in database
+        ref.child("Conversation").child(conversationID).queryLimited(toLast: 1).observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            print("child added")
+            //return contact
+            let contact = contactModel(data: snapshot, ConersationID: conversationID)
+            completion(contact)
+        })
+    }
+    
+    //update entire list of client contacted
+    func UpcateContactedList(conversationID: String) {
+        var conversationIDArray = Array<String>()
+        ref.child("ConversationID").child(FirebaseManager().userID()).observe(DataEventType.value, with: { (snapshot) in
+            //let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            
+            //check and upload new contact ID
             //parse all child value into one array
             for child in snapshot.children {
                 conversationIDArray.append((child as! DataSnapshot).value! as! String)
@@ -226,9 +257,11 @@ extension FirebaseManager {
             if !conversationIDArray.contains(conversationID) {
                 //upload the new convo ID to database
                 self.saveContactedList(conversationID: conversationID)
+                conversationIDArray.append(conversationID)
             }
         })
     }
+
     
     
     
