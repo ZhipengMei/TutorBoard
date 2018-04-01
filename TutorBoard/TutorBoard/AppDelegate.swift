@@ -49,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // signOut from FIRAuth
             try! Auth.auth().signOut()
             // go to beginning of app
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let home: UINavigationController = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
+            self.window?.rootViewController = home
         } else {
             //check user persist
             FirebaseManager().isFirebaseUserSignedIn(completion: { (isFinished) in

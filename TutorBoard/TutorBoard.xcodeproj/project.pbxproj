@@ -20,6 +20,7 @@
 		3A85D7EC2068E5BE00EBF496 /* SegueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85D7EB2068E5BE00EBF496 /* SegueManager.swift */; };
 		3A94E25D206458B0000B038E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94E25C206458B0000B038E /* UserProfile.swift */; };
 		3AA2759A206F150A0066F800 /* UpdateBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA27599206F150A0066F800 /* UpdateBioViewController.swift */; };
+		3AA275A0206F4C5F0066F800 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA2759F206F4C5F0066F800 /* ImageModel.swift */; };
 		3AA7697A20644F3F00868084 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7697920644F3F00868084 /* FirebaseManager.swift */; };
 		3AA7697C2064533600868084 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7697B2064533600868084 /* SignupViewController.swift */; };
 		3AA7697E2064540400868084 /* ChooseRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7697D2064540400868084 /* ChooseRoleViewController.swift */; };
@@ -55,6 +56,7 @@
 		3A85D7EB2068E5BE00EBF496 /* SegueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueManager.swift; sourceTree = "<group>"; };
 		3A94E25C206458B0000B038E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		3AA27599206F150A0066F800 /* UpdateBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBioViewController.swift; sourceTree = "<group>"; };
+		3AA2759F206F4C5F0066F800 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		3AA7697920644F3F00868084 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		3AA7697B2064533600868084 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3AA7697D2064540400868084 /* ChooseRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoleViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				3AF74E162067051100366633 /* CoreDataManager.swift */,
 				3A85D7EB2068E5BE00EBF496 /* SegueManager.swift */,
 				3AAAFBBE2068FC1100F3B34C /* MessageModel.swift */,
+				3AA2759F206F4C5F0066F800 /* ImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				3A85D7E62068B74E00EBF496 /* ChatViewController.swift in Sources */,
 				3A85D7D920685BD800EBF496 /* TutorBoard.xcdatamodeld in Sources */,
 				3AF74E172067051100366633 /* CoreDataManager.swift in Sources */,
+				3AA275A0206F4C5F0066F800 /* ImageModel.swift in Sources */,
 				3A2AAAF5206606EE00BFFE84 /* DetailTutorViewController.swift in Sources */,
 				3A85D7EC2068E5BE00EBF496 /* SegueManager.swift in Sources */,
 				3ACAAFEB2062CF8C00DE7AAB /* AppDelegate.swift in Sources */,

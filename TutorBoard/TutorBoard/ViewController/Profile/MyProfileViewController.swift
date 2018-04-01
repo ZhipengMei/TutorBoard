@@ -16,6 +16,7 @@ class MyProfileViewController: UITableViewController {
     @IBOutlet weak var profile_img: UIImageView!
     
     var myprofile: Tutor!
+    var isDataReady = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +24,22 @@ class MyProfileViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        myprofile = CoreDataManager().fetchSingleUser(userid: FirebaseManager().userID())
-        configureUIData()
-        tableView.reloadData()
+        myprofile = CoreDataManager().fetchSingleUser(userid: FirebaseManager().userID(), completion: {(isFinished) in
+            if isFinished == true {
+                self.isDataReady = true
+            }
+        })
+        
+        if isDataReady == true {
+            self.configureUIData()
+            self.tableView.reloadData()
+        }
     }
     
     func configureUIData() {
         name_label.text! = myprofile.firstname! + " " + myprofile.lastname!
         bio_label.text! = myprofile.bio!
+        ImageModel().downloadImage(myprofile.profilePic!, inView: profile_img)
     }
     
     @IBAction func FirebaseLogout(_ sender: Any) {
@@ -102,4 +111,36 @@ class MyProfileViewController: UITableViewController {
     */
 
 }
+
+/*
+ Asynchronously
+ Create a method with a completion handler to get the image data from your url
+ Create a method to download the image (start the task)
+ */
+extension MyProfileViewController {
+    func downloadImage(_ uri : String, inView: UIImageView){
+        
+        let url = URL(string: uri)
+        
+        let task = URLSession.shared.dataTask(with: url!) {responseData,response,error in
+            if error == nil{
+                if let data = responseData {
+                    
+                    DispatchQueue.main.async {
+                        inView.image = UIImage(data: data)
+                    }
+                }else {
+                    print("no data")
+                }
+            }else{
+                print(error!)
+            }
+        }
+        task.resume()
+    }
+    
+}
+
+
+
 

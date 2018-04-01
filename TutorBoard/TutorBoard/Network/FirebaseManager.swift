@@ -38,7 +38,7 @@ class FirebaseManager: NSObject {
                 newUser.uniqueid = self.userID()
                 
                 //update database with new user profile
-                self.FirebaseUpdateCurrentUserProfile(user_dict: newUser.UserProfileToDictionary(), completion: {(isFinished) in
+                self.FirebaseUpdateCurrentUserProfile(user_dict: newUser.UserProfileToDictionary() as! Dictionary<String, Any>, completion: {(isFinished) in
                 
                     if isFinished == true {
                         //upload default image
@@ -95,8 +95,8 @@ class FirebaseManager: NSObject {
     let ref = Database.database().reference()
     
     // update new user's data
-    func FirebaseUpdateCurrentUserProfile(user_dict: Dictionary<String, String> , completion: @escaping (Bool)->()) {
-        ref.child("users").child(user_dict["role"]!).child(userID()).setValue(user_dict)
+    func FirebaseUpdateCurrentUserProfile(user_dict: Dictionary<String, Any> , completion: @escaping (Bool)->()) {
+        ref.child("users").child(user_dict["role"]! as! String).child(userID()).setValue(user_dict)
         print("Success: Updated user's profile")
         completion(true)
     }
@@ -109,16 +109,23 @@ class FirebaseManager: NSObject {
     }
     
     
+    
+    
     // fetch Tutor's info (child added)
     func FirebaseFetchTutors(completion: @escaping ([UserProfile])->()) {
-        //ref.child("users").child("Tutor").observe(DataEventType.childAdded, with: { (snapshot) in
-        ref.child("users").child("Tutor").observe(DataEventType.childChanged, with: { (snapshot) in
-            
+        ref.child("users").child("Tutor").observe(DataEventType.childAdded, with: { (snapshot) in
             let tutors:[UserProfile] = UserProfile().parseMultipleDataSnapshot(data: snapshot)
+            print("\n\nFirebaseFetchTutors\n\n")
+
+            for ele in tutors {
+                print(ele.firstname + " " + ele.lastname)
+            }
+            
+//            for ele in snapshot.children {
+//                print((ele as! DataSnapshot).value)
+//            }
             //save tutors dictionary into CoreData
             CoreDataManager().SaveTutorObjectToCoreData(Tutors: tutors)
-            
-            //CoreDataManager().UpdateSingleUser(thisTutor: snapshot.value)
             
             //return tutors dictionary
             completion(tutors)
@@ -210,6 +217,16 @@ extension FirebaseManager {
         })
     }
     
+    // Contacted List
+    func fetchContactedList() {
+        ref.child("Conversation")
+    }
+    
 }
+
+
+
+
+
 
 

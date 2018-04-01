@@ -23,6 +23,9 @@ class ChatViewController: JSQMessagesViewController {
 
     // TODO all messages here, use coredata later
     var messages = [JSQMessage]()
+    
+    var isSenderDataReady = false
+    var isReceiverDataReady = false
 }
 
 extension ChatViewController {
@@ -49,14 +52,28 @@ extension ChatViewController {
         self.senderId = sender
         
         //sender's Info
-        senderInfo = CoreDataManager().fetchSingleUser(userid: sender)
-        self.senderDisplayName = senderInfo.firstname!
+        senderInfo = CoreDataManager().fetchSingleUser(userid: sender, completion: {(isFinished) in
+            if isFinished == true {                
+                self.isSenderDataReady = true
+            }
+        })
         
         //receiver's Info
-        receiverInfo = CoreDataManager().fetchSingleUser(userid: receiver)
+        receiverInfo = CoreDataManager().fetchSingleUser(userid: receiver, completion: {(isFinished) in
+            if isFinished == true {
+                self.isReceiverDataReady = true
+            }
+        })
         
-        //setup the title of the view
-        self.title = receiverInfo.firstname
+        if isSenderDataReady == true {
+            self.senderDisplayName = self.senderInfo.firstname!
+        }
+        
+        if isReceiverDataReady == true {
+            //setup the title of the view
+            self.title = self.receiverInfo.firstname
+        }
+        
         //create a conversation at the very beginning
         createConversation()
     }
@@ -67,7 +84,7 @@ extension ChatViewController {
         if(sender > receiver) {
             conversationID = sender + receiver
         } else {
-            conversationID = sender + receiver
+            conversationID = receiver + sender
         }
         CoreDataManager().setupConversation(conversationID: conversationID, userid: sender)
     }

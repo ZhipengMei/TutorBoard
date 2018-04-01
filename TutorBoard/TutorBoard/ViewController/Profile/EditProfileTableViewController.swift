@@ -21,16 +21,26 @@ class EditProfileTableViewController: UITableViewController {
     @IBOutlet weak var image_cell: UITableViewCell!
     
     var myprofile: Tutor!
+    var isDataReady = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        myprofile = CoreDataManager().fetchSingleUser(userid: FirebaseManager().userID())
-        configureUIData()
-        tableView.reloadData()
+        myprofile = CoreDataManager().fetchSingleUser(userid: FirebaseManager().userID(), completion: {(isFinished) in
+            
+            if isFinished == true {
+                self.isDataReady = true
+            }
+            
+        })
+        
+        if isDataReady == true {
+            self.configureUIData()
+            self.tableView.reloadData()
+        }
     }
     
     //configuration of the UI
@@ -41,8 +51,7 @@ class EditProfileTableViewController: UITableViewController {
         
         configureProfileImageCell()
         
-        self.downloadImage("https://firebasestorage.googleapis.com/v0/b/bromance-e91d8.appspot.com/o/default_image%2Fprofile_pic_small.jpg?alt=media&token=d18e1e96-08b3-4eb7-81e3-9a0f73d904c9", inView: profile_img)
-
+        ImageModel().downloadImage(myprofile.profilePic!, inView: profile_img)
     }
     
     //tap gesture to activate image picker
@@ -126,7 +135,7 @@ class EditProfileTableViewController: UITableViewController {
     
 }
 
-//
+// UIImagePickerControllerDelegate
 extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //display the image picker
@@ -164,35 +173,3 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINav
     }
     
 }
-
-
-/*
- Asynchronously
- Create a method with a completion handler to get the image data from your url
- Create a method to download the image (start the task)
-*/
-extension EditProfileTableViewController {
-    func downloadImage(_ uri : String, inView: UIImageView){
-        
-        let url = URL(string: uri)
-        
-        let task = URLSession.shared.dataTask(with: url!) {responseData,response,error in
-            if error == nil{
-                if let data = responseData {
-                    
-                    DispatchQueue.main.async {
-                        inView.image = UIImage(data: data)
-                    }
-                }else {
-                    print("no data")
-                }
-            }else{
-                print(error!)
-            }
-        }
-        task.resume()
-    }
-    
-}
-
-

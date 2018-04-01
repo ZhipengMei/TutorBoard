@@ -24,7 +24,6 @@ class CoreDataManager {
         print("inside SaveTutorObjectToCoreData 1")
         //managed context
         context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
-        //context.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
         
         // initializing new Tutor Entity
         let tutor_entity = NSEntityDescription.entity(forEntityName: "Tutor", in: context)
@@ -47,13 +46,17 @@ class CoreDataManager {
     }()
     
     //download data from firebase first, save it to coredata, then fetch from coredata for display
-    func fetchSingleUser(userid: String) -> Tutor {
+    func fetchSingleUser(userid: String, completion: @escaping (Bool)->()) -> Tutor {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tutor")
         request.predicate = NSPredicate(format: "uniqueid = %@", userid)
         request.fetchLimit = 1
         request.returnsObjectsAsFaults = false
 
         let result = try! context.fetch(request) as! [Tutor]
+        print(result.count)
+        print(result[0])
+        
+        completion(true)
         return result[0]
     }
     
@@ -67,7 +70,8 @@ class CoreDataManager {
         //fetch the object
         let result = try! context.fetch(request) as! [NSManagedObject]
         
-        result[0].setValuesForKeys(thisTutor.UserProfileToDictionary())        
+        result[0].setValuesForKeys(thisTutor.UserProfileToDictionary())
+        try! context.save()
     }
 
     
@@ -89,7 +93,7 @@ extension CoreDataManager {
         new_conversation.setValue(conversationID, forKey: "conversationID")
         
         //link conversation to tutor (one to many relationship)
-        let tutor = fetchSingleUser(userid: userid)
+        let tutor = fetchSingleUser(userid: userid, completion: {_ in })
         tutor.addToConversation(new_conversation as! Conversation)
         
         try! context.save()
@@ -114,11 +118,7 @@ extension CoreDataManager {
     func saveMessage(messageData: NSDictionary, conversationID: String) {
         //managed context
         context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
-        
-//        //parse JSQMessage to dictionary
-//        let dict_messageData = MessageModel().JSQMessageToDictionary(JSQmsg: messageData)
-        
-        
+    
         //Save to coredate
         // initializing Conversation Entity
         let message_entity = NSEntityDescription.entity(forEntityName: "Message", in: context)
@@ -132,9 +132,7 @@ extension CoreDataManager {
         
         try! context.save()
     }
-    
-    
-    
+        
     
 }
 

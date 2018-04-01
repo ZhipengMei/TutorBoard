@@ -16,10 +16,6 @@ class Login: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Remove title from back button. Now only "<" symbol will be show as back button.
-        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationItem.backBarButtonItem = backButton
-        
         tapDismissKeyboard()
         
         userLogin.delegate = self
@@ -39,6 +35,9 @@ class Login: UIViewController, UITextFieldDelegate {
             if isFinished == false {
                 self.userLogin.text = ""
                 self.userPassword.text = ""
+            } else {
+                //go to tab view
+                SegueManager().toTabBar(controller: self)
             }
         })
     }

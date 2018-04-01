@@ -17,7 +17,8 @@ class HomeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.backgroundColor = UIColor.darkGray
+        //self.backgroundColor = UIColor.darkGray
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

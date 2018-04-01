@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
         tableview.delegate = self
         tableview.dataSource = self
         
-        //YourTableViewHeight
+        //TableViewHeight
         tableview.estimatedRowHeight = 44
         tableview.rowHeight = UITableViewAutomaticDimension
         
@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
             //self.tutors = returnedTutors
             self.tutors = CoreDataManager().home_frc
             try! self.tutors.performFetch()
+            
             //maybe optional to reload
             self.tableview.reloadData()
         })
@@ -61,7 +62,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected_tutor = tutors.object(at: indexPath) as! Tutor
-
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailTutorViewController") as! DetailTutorViewController
         vc.tutor_id = selected_tutor.uniqueid!
         self.navigationController?.pushViewController(vc, animated: true)
@@ -70,8 +71,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return tutors.count
         if let count = tutors.fetchedObjects?.count {
-            return count
-        }
+            return count - 1
+        }        
         return 0
     }
     
@@ -83,8 +84,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func configureCell(cell: HomeTableViewCell, indexpath: IndexPath) {
         let tutor = tutors.object(at: indexpath) as! Tutor
-        cell.name.text = tutor.firstname! + tutor.lastname!
-        cell.subject.text = tutor.subject
+        
+        if tutor.uniqueid! != FirebaseManager().userID() {
+            print(tutor.uniqueid!)
+            print(FirebaseManager().userID())
+            cell.name.text = tutor.firstname! + tutor.lastname!
+            cell.subject.text = tutor.subject
+            ImageModel().downloadImage(tutor.profilePic!, inView: cell.imageview)
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

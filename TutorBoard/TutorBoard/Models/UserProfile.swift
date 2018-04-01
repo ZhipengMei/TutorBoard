@@ -36,7 +36,7 @@ class UserProfile: NSObject {
         self.role = data[5] as! String
         self.uniqueid = data[6] as! String
         self.bio = data[7] as! String
-        self.profilePic = data[7] as! String
+        self.profilePic = data[8] as! String
     }
     
     init(data: DataSnapshot) {
@@ -60,7 +60,7 @@ class UserProfile: NSObject {
                          "uniqueid": self.uniqueid!,
                          "bio": self.bio!,
                          "profilePic": self.profilePic!]
-        return dict_data        
+        return dict_data
     }
     
     //parse returned firebase snapshot (one profile data)
@@ -81,12 +81,20 @@ class UserProfile: NSObject {
         //UserProfile array
         var tutors_data = [UserProfile]()
         //parse multiple DataSnapshot and append each one into tutors_data
-        for child in data.children {
-            if let value = (child as! DataSnapshot).value as? NSDictionary{
-                let tutor = UserProfile(data: value)
-                tutors_data.append(tutor)
-            }
+        //print(data.value!)
+        if let value = data.value! as? NSDictionary{
+            let tutor = UserProfile(data: value)
+            tutors_data.append(tutor)
         }
+//        for child in data.children {
+////            print((child as! DataSnapshot).value)
+////            if let value = (child as! DataSnapshot).value! as? NSDictionary{
+//            if let value = (child as! DataSnapshot).value {
+//
+//                print(value)
+//                print("white space")
+//            }
+//        }
         return tutors_data
     }
     

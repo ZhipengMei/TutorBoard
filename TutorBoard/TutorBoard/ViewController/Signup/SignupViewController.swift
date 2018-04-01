@@ -20,6 +20,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     let profilePic = ""
     let role = ""
     let uniqueid = "" //temporary placeholder
+    let contactList = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,16 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         let vc = segue.destination as! BioViewController
         
         //put all user info into an array
-        let data = [firstname_textfield.text!, lastname_textfield.text!, email_texxtfield.text!, subject_textfield.text!, password_textfield.text!, role, uniqueid, bio]
+        let data = [firstname_textfield.text!,
+                    lastname_textfield.text!,
+                    email_texxtfield.text!,
+                    subject_textfield.text!,
+                    password_textfield.text!,
+                    role,
+                    uniqueid,
+                    bio,
+                    profilePic,
+                    contactList] as [Any]
         
         // create a user object
         let newUser = UserProfile(data: data as NSArray)

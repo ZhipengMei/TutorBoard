@@ -22,7 +22,7 @@ class DetailTutorViewController: UIViewController {
         tableview.dataSource = self
         
         if tutor_id != nil {
-            tutor_profile = CoreDataManager().fetchSingleUser(userid: tutor_id)
+            tutor_profile = CoreDataManager().fetchSingleUser(userid: tutor_id, completion: {_ in })
         } else {
             print("it is nilllllllll")
         }
@@ -39,7 +39,6 @@ extension DetailTutorViewController: UITableViewDelegate, UITableViewDataSource 
         return 2
     }
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -51,9 +50,12 @@ extension DetailTutorViewController: UITableViewDelegate, UITableViewDataSource 
         let cells = Bundle.main.loadNibNamed("CustomCell", owner: self, options: nil) as! [CustomCell]
         
         if indexPath.section == 0 {
-            cells[0].name.text = tutor_profile.firstname! + tutor_profile.lastname!
+            cells[0].name.text = tutor_profile.firstname! + " " +  tutor_profile.lastname!
             cells[0].subject.text = tutor_profile.subject!
+            cells[0].request_button.setTitle("Reuqest Tutoring From \(tutor_profile.firstname!)", for: .normal)
             cells[0].request_button.addTarget(self, action: #selector(request_action), for: .touchUpInside)
+            ImageModel().downloadImage(tutor_profile.profilePic!, inView: cells[0].imageview)
+            cells[0].bio_textview.text! = tutor_profile.bio!
             return cells[0]
         }
         return cells[1]

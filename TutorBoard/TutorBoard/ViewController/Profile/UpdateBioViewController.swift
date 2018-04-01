@@ -35,8 +35,7 @@ class UpdateBioViewController: UIViewController, UITextViewDelegate {
             
             self.thisUser?.bio = self.bio_textview.text
             if isFinished == true {
-                //CoreDataManager().UpdateSingleUser(thisTutor: self.thisUser!)
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }
             
         })

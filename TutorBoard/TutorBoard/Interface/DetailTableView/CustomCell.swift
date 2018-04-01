@@ -14,12 +14,11 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var subject: UILabel!
     @IBOutlet weak var request_button: UIButton!
+    @IBOutlet weak var bio_textview: UILabel!
+    @IBOutlet weak var imageview: UIImageView!
     
     
     // Review Cell
-    
-    
-    
     
     
     
