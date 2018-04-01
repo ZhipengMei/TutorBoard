@@ -102,8 +102,6 @@ extension ChatViewController {
         //download messages from database
         FirebaseManager().fetchMessages(conversationID: conversationID, completion: {(snapshot_dict) -> () in
             
-            
-            //yee
             //save each new message in CoreData for UI display
             CoreDataManager().saveMessage(messageData: snapshot_dict as NSDictionary, conversationID: self.conversationID)
         })
@@ -145,6 +143,9 @@ extension ChatViewController {
 
         //upload messages to firebase so peer client can download the same message
         FirebaseManager().UploadChatMessage(conversationID: conversationID, message: MessageModel().JSQMessageToDictionary(JSQmsg: message!))
+        
+        //FirebaseManager().saveContactedList(conversationID: conversationID)
+        FirebaseManager().fetchContactedList(conversationID: conversationID)
         
         finishSendingMessage()
     }

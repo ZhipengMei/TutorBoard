@@ -72,7 +72,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         //return tutors.count
         if let count = tutors.fetchedObjects?.count {
             return count - 1
-        }        
+        }
         return 0
     }
     
@@ -86,8 +86,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let tutor = tutors.object(at: indexpath) as! Tutor
         
         if tutor.uniqueid! != FirebaseManager().userID() {
-            print(tutor.uniqueid!)
-            print(FirebaseManager().userID())
             cell.name.text = tutor.firstname! + tutor.lastname!
             cell.subject.text = tutor.subject
             ImageModel().downloadImage(tutor.profilePic!, inView: cell.imageview)

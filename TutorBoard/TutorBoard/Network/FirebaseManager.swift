@@ -115,15 +115,7 @@ class FirebaseManager: NSObject {
     func FirebaseFetchTutors(completion: @escaping ([UserProfile])->()) {
         ref.child("users").child("Tutor").observe(DataEventType.childAdded, with: { (snapshot) in
             let tutors:[UserProfile] = UserProfile().parseMultipleDataSnapshot(data: snapshot)
-            print("\n\nFirebaseFetchTutors\n\n")
 
-            for ele in tutors {
-                print(ele.firstname + " " + ele.lastname)
-            }
-            
-//            for ele in snapshot.children {
-//                print((ele as! DataSnapshot).value)
-//            }
             //save tutors dictionary into CoreData
             CoreDataManager().SaveTutorObjectToCoreData(Tutors: tutors)
             
@@ -218,9 +210,27 @@ extension FirebaseManager {
     }
     
     // Contacted List
-    func fetchContactedList() {
-        ref.child("Conversation")
+    func saveContactedList(conversationID: String) {
+        ref.child("ConversationID").child(FirebaseManager().userID()).childByAutoId().setValue(conversationID)
     }
+    
+    func fetchContactedList(conversationID: String) {
+        var conversationIDArray = Array<String>()
+        ref.child("ConversationID").child(FirebaseManager().userID()).observe(DataEventType.value, with: { (snapshot) in
+            //let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            //parse all child value into one array
+            for child in snapshot.children {
+                conversationIDArray.append((child as! DataSnapshot).value! as! String)
+            }
+            //if conversationID is not part of the list
+            if !conversationIDArray.contains(conversationID) {
+                //upload the new convo ID to database
+                self.saveContactedList(conversationID: conversationID)
+            }
+        })
+    }
+    
+    
     
 }
 
