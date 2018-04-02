@@ -37,7 +37,8 @@ class Login: UIViewController, UITextFieldDelegate {
                 self.userPassword.text = ""
             } else {
                 //go to tab view
-                SegueManager().toTabBar(controller: self)
+                //SegueManager().toTabBar(controller: self)
+                SegueManager().toTabBar(navController: self.navigationController!)
             }
         })
     }

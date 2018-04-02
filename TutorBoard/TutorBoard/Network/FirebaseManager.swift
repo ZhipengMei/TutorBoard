@@ -210,9 +210,12 @@ extension FirebaseManager {
         })
     }
     
-    // Contacted List
+    // save Contacted List to database for both sender and receiver
     func saveContactedList(conversationID: String) {
         ref.child("ConversationID").child(FirebaseManager().userID()).childByAutoId().setValue(conversationID)
+        
+        let clientID = conversationID.replacingOccurrences(of: FirebaseManager().userID(), with: "")
+        ref.child("ConversationID").child(clientID).childByAutoId().setValue(conversationID)
     }
     
     //download entire list of client contacted
@@ -230,7 +233,6 @@ extension FirebaseManager {
         })
     }
     
-    //TODO
     //download last text, other client's name and profile image
     func fetchConversation(conversationID: String, completion: @escaping (contactModel)->()) {
         //fetch the last message from that specific table in database

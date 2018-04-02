@@ -37,13 +37,21 @@ class CoreDataManager {
     
     
     //default variable for NSFetchedResultsController for HomeVC
-    lazy var home_frc: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tutor")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "firstname", ascending: false)]
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        frc.delegate = HomeViewController()
-        return frc
-    }()
+//    lazy var home_frc: NSFetchedResultsController<NSFetchRequestResult> = {
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tutor")
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "firstname", ascending: false)]
+//        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//        frc.delegate = HomeViewController()
+//        return frc
+//    }()
+    
+    func fetchForHomeViewController() -> [Tutor] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tutor")
+        request.returnsObjectsAsFaults = false
+        
+        let result = try! context.fetch(request) as! [Tutor]
+        return result
+    }
     
     //download data from firebase first, save it to coredata, then fetch from coredata for display
     func fetchSingleUser(userid: String, completion: @escaping (Bool)->()) -> Tutor {

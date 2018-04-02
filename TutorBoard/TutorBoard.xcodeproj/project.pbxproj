@@ -10,6 +10,8 @@
 		3A112278206D6B4400B2EAB6 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A112277206D6B4400B2EAB6 /* ContinueButton.swift */; };
 		3A11227B206DE4C400B2EAB6 /* HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11227A206DE4C400B2EAB6 /* HomeMenu.swift */; };
 		3A2AAAF5206606EE00BFFE84 /* DetailTutorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */; };
+		3A5B104A2071996E00A450C9 /* Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B10492071996E00A450C9 /* Draw.swift */; };
+		3A5B104C2071997E00A450C9 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B104B2071997E00A450C9 /* DrawViewController.swift */; };
 		3A79BC6D2064C1620035DDBF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC6C2064C1620035DDBF /* TabBarController.swift */; };
 		3A79BC712064C7B80035DDBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC702064C7B80035DDBF /* HomeViewController.swift */; };
 		3A79BC752064C9D70035DDBF /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC742064C9D70035DDBF /* HomeTableViewCell.swift */; };
@@ -47,6 +49,8 @@
 		3A112277206D6B4400B2EAB6 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		3A11227A206DE4C400B2EAB6 /* HomeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenu.swift; sourceTree = "<group>"; };
 		3A2AAAF4206606EE00BFFE84 /* DetailTutorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTutorViewController.swift; sourceTree = "<group>"; };
+		3A5B10492071996E00A450C9 /* Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Draw.swift; sourceTree = "<group>"; };
+		3A5B104B2071997E00A450C9 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		3A79BC6C2064C1620035DDBF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3A79BC702064C7B80035DDBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3A79BC742064C9D70035DDBF /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +106,15 @@
 				3A11227A206DE4C400B2EAB6 /* HomeMenu.swift */,
 			);
 			path = HomeMenu;
+			sourceTree = "<group>";
+		};
+		3A5B10482071995C00A450C9 /* Draw Interface */ = {
+			isa = PBXGroup;
+			children = (
+				3A5B104B2071997E00A450C9 /* DrawViewController.swift */,
+				3A5B10492071996E00A450C9 /* Draw.swift */,
+			);
+			path = "Draw Interface";
 			sourceTree = "<group>";
 		};
 		3A79BC722064C7E10035DDBF /* Login Interface */ = {
@@ -174,6 +187,7 @@
 				3AA7697820644F2800868084 /* Network */,
 				3AF31C35206384810066BA90 /* Models */,
 				3AF31C2F206384810066BA90 /* Interface */,
+				3A5B10482071995C00A450C9 /* Draw Interface */,
 				3A85D7E42068B72B00EBF496 /* Chat Feature */,
 				3AF31C2E206383C10066BA90 /* ViewController */,
 				3ACAAFEE2062CF8C00DE7AAB /* Main.storyboard */,
@@ -416,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5B104C2071997E00A450C9 /* DrawViewController.swift in Sources */,
 				3ACA8ABC20658092000B114F /* MyProfileViewController.swift in Sources */,
 				3AF74E152066F4F700366633 /* CustomCell.swift in Sources */,
 				3AA7697A20644F3F00868084 /* FirebaseManager.swift in Sources */,
@@ -428,6 +443,7 @@
 				3AE9D72A206E42E2004A2ABA /* EditProfileTableViewController.swift in Sources */,
 				3AA7697E2064540400868084 /* ChooseRoleViewController.swift in Sources */,
 				3AF31C3E206384810066BA90 /* LoginButton.swift in Sources */,
+				3A5B104A2071996E00A450C9 /* Draw.swift in Sources */,
 				3A79BC752064C9D70035DDBF /* HomeTableViewCell.swift in Sources */,
 				3AE9D727206E29B9004A2ABA /* BioViewController.swift in Sources */,
 				3AF31C40206384810066BA90 /* LoginTextField.swift in Sources */,

@@ -43,6 +43,17 @@ extension ChatViewController {
         setup()
         
         self.messages = getMessages()
+        
+        //add "Live" button
+        let rightBarButton = UIBarButtonItem(title: "Live", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ChatViewController.myRightSideBarButtonItemTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        rightBarButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
+
+    }
+    
+    
+    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!) {
+        SegueManager().toDrawViewController(navController: self.navigationController!)
     }
     
     //display the tab bar

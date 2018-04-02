@@ -34,7 +34,8 @@ class ChooseRoleViewController: UIViewController {
             if isFinished == true {
                 //fetch current user's info into coredata
                 FirebaseManager().FireBaseFetchSingleUser(userid: FirebaseManager().userID(), completion: {_ in})
-                SegueManager().toTabBar(controller: self)
+                //SegueManager().toTabBar(controller: self)
+                SegueManager().toTabBar(navController: self.navigationController!)
             } else {
                 print("Error: Signup failed")
             }

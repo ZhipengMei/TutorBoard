@@ -24,6 +24,7 @@ class contactModel: NSObject {
     //parse the data (for sign up process)
     init(data: DataSnapshot, ConersationID: String) {
         let clientID = ConersationID.replacingOccurrences(of: FirebaseManager().userID(), with: "")
+        
         let otherClient = CoreDataManager().fetchSingleUser(userid: clientID, completion: {_ in })
         self.name = otherClient.firstname!
         self.profilePic = otherClient.profilePic!

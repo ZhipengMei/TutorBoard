@@ -19,12 +19,23 @@ class SegueManager {
         navController.pushViewController(vc, animated: true)
     }
     
+    func toDrawViewController(navController: UINavigationController) {
+        let vc = storyboard.instantiateViewController(withIdentifier: "DrawViewController") as! DrawViewController
+        navController.pushViewController(vc, animated: true)
+    }
 
     // go to Tab Bar
-    func toTabBar(controller: UIViewController) {
+//    func toTabBar(controller: UIViewController) {
+//        if let tabBarController = storyboard.instantiateViewController(withIdentifier:
+//            "TabBarController") as? TabBarController {
+//            controller.present(tabBarController, animated: true, completion: nil)
+//        }
+//    }
+    func toTabBar(navController: UINavigationController) {
         if let tabBarController = storyboard.instantiateViewController(withIdentifier:
             "TabBarController") as? TabBarController {
-            controller.present(tabBarController, animated: true, completion: nil)
+            navController.pushViewController(tabBarController, animated: true)
+                //.present(tabBarController, animated: true, completion: nil)
         }
     }
     
