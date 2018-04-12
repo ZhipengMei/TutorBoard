@@ -1,6 +1,14 @@
 # TutorBoard
 Mobile Application for Students/tutors
 
+## User Stories
+
+The following **required** functionality is complete:
+
+- [x] Firebase Login/Email Signup
+- [x] Chat 
+- [x] Drawing
+
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
