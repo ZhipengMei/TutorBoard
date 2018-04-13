@@ -14,9 +14,14 @@ The following **required** functionality is complete:
 Here's a walkthrough of implemented user stories:
 
 #### Version 1
-<img src='https://github.com/bpbrianpham/TutorBoard/blob/master/Resources/TutorBoard.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<p align="center">
+  <img width="" height="" src="https://github.com/bpbrianpham/TutorBoard/blob/master/Resources/TutorBoard.gif">
+</p>
 
 #### Version 2
-<img src='https://github.com/bpbrianpham/TutorBoard/blob/master/Resources/Tutorboard2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<p align="center">
+  <img width="" height="" src="https://github.com/bpbrianpham/TutorBoard/blob/master/Resources/Tutorboard2.gif">
+</p>
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
