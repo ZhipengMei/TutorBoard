@@ -13,13 +13,6 @@ The following **required** functionality is complete:
 
 Here's a walkthrough of implemented user stories:
 
-#### Version 1
-<p align="center">
-  <img width="" height="" src="https://github.com/bpbrianpham/TutorBoard/blob/master/Resources/TutorBoard.gif">
-</p>
-
-#### Version 2
-
 <p align="center">
   <img width="" height="" src="https://github.com/bpbrianpham/TutorBoard/blob/master/Resources/Tutorboard2.gif">
 </p>
